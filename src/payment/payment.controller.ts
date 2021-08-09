@@ -1,12 +1,12 @@
-import { NextFunction, Response } from 'express';
-import { RequestWithCustomer } from '@/@universal/interfaces/request.interface';
+import { NextFunction, Response, Request } from 'express';
 import PaymentService from './payment.service';
 import UniversalController from '@/@universal/controller/universal.controller';
+import { ICustomer } from '@/@universal/interfaces/customer.interface';
 
 class PaymentController extends UniversalController {
   paymentService = new PaymentService();
 
-  public transactionHistory = async (req: RequestWithCustomer, res: Response, next: NextFunction): Promise<void> => {
+  public transactionHistory = async (req: Request & { customer: ICustomer }, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { params, query } = req;
       const userData: string = params.accountNumber;

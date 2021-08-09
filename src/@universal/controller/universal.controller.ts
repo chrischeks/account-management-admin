@@ -1,7 +1,6 @@
 import IResponse from '@/@universal/interfaces/response.interface';
 import { Response, Request } from 'express';
 import { ICustomer } from '../interfaces/customer.interface';
-// import { RequestWithCustomer } from '../interfaces/request.interface';
 import { logger } from '../logger/logger';
 
 class UniversalController {
