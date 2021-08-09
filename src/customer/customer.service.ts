@@ -17,12 +17,13 @@ class CustomerService extends UniversalService {
       {
         $facet: {
           metadata: [{ $count: 'total' }],
-          result: [{ $sort: { createdAt: -1 } }, { $skip: page }, { $limit: limit }],
+          result: [{ $sort: { createdAt: -1 } }, { $skip: page }, { $limit: limit }, { $project: { pin: 0, password: 0 } }],
         },
       },
       {
         $project: {
           result: 1,
+
           // Get total from the first element of the metadata array
           total: { $arrayElemAt: ['$metadata.total', 0] },
         },

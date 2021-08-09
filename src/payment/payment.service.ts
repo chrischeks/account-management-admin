@@ -1,10 +1,5 @@
-import IResponse from '@/@universal/interfaces/response.interface';
 import UniversalService from '@/@universal/service/universal.service';
-import { ITransfer } from './payment.interface';
-import mongoose from 'mongoose';
-import customerModel from '@/customer/customer.model';
 import paymentModel from './payment.model';
-import { ICustomer } from '@/@universal/interfaces/customer.interface';
 
 class PaymentService extends UniversalService {
   private payment = paymentModel;
@@ -19,12 +14,12 @@ class PaymentService extends UniversalService {
       {
         $facet: {
           metadata: [{ $count: 'total' }],
-          data: [{ $sort: { createdAt: -1 } }, { $skip: page }, { $limit: limit }],
+          result: [{ $sort: { createdAt: -1 } }, { $skip: page }, { $limit: limit }],
         },
       },
       {
         $project: {
-          data: 1,
+          result: 1,
           // Get total from the first element of the metadata array
           total: { $arrayElemAt: ['$metadata.total', 0] },
         },

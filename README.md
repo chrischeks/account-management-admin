@@ -1,12 +1,10 @@
 # Project Title
 
-A nice project with a nice description
-
----
+## Admin for NodeJS & MongoDB bank accounts management REST API
 
 ## Requirements
 
-For development, you will only need Node.js and a node global package, Yarn, installed in your environement.
+For development, you will need Node.js and a node global package installed in your environement.
 
 ### Node
 
@@ -39,22 +37,26 @@ If the installation was successful, you should be able to run the following comm
 
 ## Install
 
-    $ git clone https://github.com/YOUR_USERNAME/PROJECT_TITLE
-    $ cd PROJECT_TITLE
-    $ yarn install
+    $ git clone https://github.com/chrischeks/account-management-admin.git
+    $ cd account-management-admin
+    $ npm install
 
 ## Configure app
 
-Open `a/nice/path/to/a.file` then edit it with your settings. You will need:
+Open `src/@universal/configs/`, there you will see the configurations for doifferent environments. The config for production was intentionally committed to the repository but for a real project it won't.
 
-- A setting;
-- Another setting;
-- One more setting;
+## Running the project for development
 
-## Running the project
+    $ npm run dev
 
-    $ yarn start
+## Running tests
+
+    $ npm run test
 
 ## Simple build for production
 
-    $ yarn build
+    $ npm run build
+
+## Running the project on production
+
+    $ npm start
